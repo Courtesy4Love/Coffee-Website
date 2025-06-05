@@ -1,220 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coffee Shop</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
-  <link rel="icon" type="image/x-icon" href="img/logo-fav.png">
-</head>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iBasura: Barangay Solid Waste Management and Reporting System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="cind.css">
+    <script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script></head>
 <body>
-  <header>
-    <a href="#" class="logo">
-      <img src="img/logo.png" />
-    </a>
-    <i class="bx bx-menu" id="menu-icon"></i>
-    <ul class="navbar">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#customers">Customers</a></li>
-    </ul>
-    <div class="header-icon">
-      <span style="position:relative; display:inline-block;">
-        <i class="bx bx-cart" alt="cart" id="cart-icon" style="cursor:pointer;"></i>
-        <span id="cart-badge" style="position:absolute; top:0; right:0; transform:translate(40%,-40%); background:#e67e22; color:#fff; border-radius:50%; min-width:20px; height:20px; display:none; align-items:center; justify-content:center; font-size:0.9rem; font-weight:bold; padding:0 6px; box-sizing:border-box; text-align:center; line-height:20px;">0</span>
-      </span>
-      <i class="bx bx-search" id="search-icon" alt="search"></i>
-    </div>
-    <div class="search-box">
-      <input type="search" placeholder="Search Here..." />
-    </div>
-  </header>
-
-  <!-- Add this after your header, before <section class="home"... -->
-  <div id="cart-overlay" class="cart-overlay"></div>
-  <div id="cart-modal" class="cart-modal">
-    <div class="cart-header">
-      <h3>Your Cart</h3>
-      <button class="cart-close" onclick="closeCart()">&times;</button>
-    </div>
-    <ul id="cart-items-modal"></ul>
-    <div class="cart-footer">
-      <p>Total: $<span id="cart-total-modal">0.00</span></p>
-    </div>
-  </div>
-
-  <section class="home" id="home">
-    <div class="home-text">
-      <h1>Start your day <br /> with coffee</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <a href="#" class="btn">Shop Now</a>
-    </div>
-    <div class="home-img">
-      <img src="img/main.png" alt="" />
-    </div>
-  </section>
-
-  <section class="about" id="about">
-    <div class="about-img">
-      <img src="img/about.jpg" alt="" />
-    </div>
-    <div class="about-text">
-      <h2>Our History</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <a href="#" class="btn">Learn More</a>
-    </div>
-  </section>
-
-  <section class="products" id="products">
-    <div class="heading">
-      <h2>Our popular products</h2>
-    </div>
-    <div class="products-container">
-      <div class="box">
-        <img src="img/p1.png" alt="Americano Pure" />
-        <h3>Americano Pure</h3>
-        <div class="content">
-          <span>$25</span>
-          <a href="#" class="add-to-cart" data-name="Americano Pure" data-price="25">Add to cart</a>
-            
-          </a>
+    <header>
+        <div class="container">
+            <a href="#hero" class="logo"><i class="fas fa-recycle"></i> iBasura</a>
+            <nav>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-list">
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#report">Report</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#qr-code">QR System</a></li>
+                    <li><a href="pathway.html">Collection Pathway</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-      <div class="box">
-        <img src="img/p2.png" />
-        <h3>Latte Cream</h3>
-        <div class="content">
-          <span>$30</span>
-          <a href="#" class="add-to-cart" data-name="Latte Cream" data-price="30">Add to cart</a>
-        </div>
-      </div>
-      <div class="box">
-        <img src="img/p3.png" />
-        <h3>Cappuccino</h3>
-        <div class="content">
-          <span>$28</span>
-          <a href="#" class="add-to-cart" data-name="Cappuccino" data-price="28">Add to cart</a>
-        </div>
-      </div>
-      <div class="box">
-        <img src="img/p4.png" />
-        <h3>Mocha Delight</h3>
-        <div class="content">
-          <span>$32</span>
-          <a href="#" class="add-to-cart" data-name="Mocha Delight" data-price="32">Add to cart</a>
-        </div>
-      </div>
-      <div class="box">
-        <img src="img/p5.png" />
-        <h3>Caramel Macchiato</h3>
-        <div class="content">
-          <span>$35</span>
-          <a href="#" class="add-to-cart" data-name="Caramel Macchiato" data-price="35">Add to cart</a>
-        </div>
-      </div>
-      <div class="box">
-        <img src="img/p6.png" />
-        <h3>Espresso Shot</h3>
-        <div class="content">
-          <span>$22</span>
-          <a href="#" class="add-to-cart" data-name="Espresso Shot" data-price="22">Add to cart</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="customers" id="customers">
-    <div class="heading">
-      <h2>Our Customer</h2>
-    </div>
-    <div class="customers-container">
-      <div class="box">
-        <div class="stars">
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star-half"></i>
+    <main>
+        <section id="hero">
+            <h1>iBasura: Barangay Solid Waste Management and Reporting System</h1>
+            <p>Promoting sustainable and responsible waste practices in Lucban, Quezon. <br>A digital solution to address waste management challenges and foster community involvement.</p>
+            <a href="#about" class="cta-button">Learn More</a>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About iBasura</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Many communities in the Philippines, particularly barangays in Lucban, Quezon, struggle with inappropriate garbage disposal. Common issues include illegal dumping, inadequate segregation methods, and ineffective collection schedules. These challenges persist despite efforts from local governing bodies, often due to reliance on manual processes and a lack of widespread awareness.</p>
+                        <p><strong>iBasura</strong> is a web-based waste management and reporting system specifically designed to address these challenges in the Lucban community. Our platform aims to bridge the communication gap between citizens and barangay authorities by leveraging digital technology. We focus on community involvement and education to foster sustainable waste management practices.</p>
+                        <h3>Our Goals:</h3>
+                        <ul>
+                            <li><i class="fas fa-bullseye"></i> Provide residents with an easy-to-use web platform for reporting and information.</li>
+                            <li><i class="fas fa-bullseye"></i> Enable barangay officials to respond in real-time to waste-related concerns.</li>
+                            <li><i class="fas fa-bullseye"></i> Educate users on proper waste segregation and recycling practices through accessible digital materials.</li>
+                            <li><i class="fas fa-bullseye"></i> Implement a QR-code based logging system for waste pickup accountability and real-time data tracking.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="report">
+            <div class="container">
+                <h2>Report Missed Garbage Collection</h2>
+                <form id="reportForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address (Lucban, Quezon)</label>
+                        <input type="text" id="address" name="address" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="collection_schedule">Your Collection Schedule</label>
+                        <select id="collection_schedule" name="collection_schedule" required="">
+                            <option value="">Select Schedule</option>
+                            <option value="monday_wednesday_friday">Monday/Wednesday/Friday</option>
+                            <option value="tuesday_thursday_saturday">Tuesday/Thursday/Saturday</option>
+                            <option value="daily">Daily</option>
+                            <option value="specific_barangay_schedule">Specific Barangay Schedule (Please note below)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="missed_date">Date of Missed Collection</label>
+                        <input type="date" id="missed_date" name="missed_date" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Additional Notes (e.g., specific location, type of waste)</label>
+                        <textarea id="notes" name="notes" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Submit Report</button>
+                </form>
+                <div id="formMessage" style="margin-top: 20px; text-align:center;"></div>
+                <div class="report-status">
+                    <h3>Track Your Report</h3>
+                    <p>For updates on your submitted report, or for urgent concerns, please contact the Barangay Office directly at [Barangay Contact Number] or email [Barangay Email Address].</p>
+                    <p>(Note: Actual status tracking feature would require backend development.)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <h2>Waste Education Hub</h2>
+                <div class="grid-container">
+                    <div class="card education-item">
+                        <img src="https://public.youware.com/users-website-assets/prod/d4af51b8-e292-4567-b329-40a1c600becf/gffdeab72f3118395daf8b2ad9d7b70e82ad5ab166fcdf429787a56af271494f83343de84184cb6b71dc56964d3c1bdda63734e092eb6bf7070ae76d5f9bcc75a_640.png" alt="Recycling Bins">
+                        <i class="fas fa-recycle"></i>
+                        <h3>Proper Waste Segregation</h3>
+                        <p>Learn how to correctly segregate your waste into Biodegradable, Non-Biodegradable, and Recyclable categories. Proper segregation is the first step towards effective waste management.</p>
+                        <ul>
+                            <li><strong>Biodegradable (Nabubulok):</strong> Kitchen waste, food scraps, yard waste.</li>
+                            <li><strong>Non-Biodegradable (Di-Nabubulok):</strong> Plastics, styrofoam, residual waste.</li>
+                            <li><strong>Recyclable (Nareresiklo):</strong> Paper, cardboard, glass bottles, metal cans.</li>
+                        </ul>
+                    </div>
+                    <div class="card education-item">
+                        <img src="https://public.youware.com/users-website-assets/prod/d4af51b8-e292-4567-b329-40a1c600becf/gbde8fd2ae0dd5cede10914f684aa0ee97f8dae313e4085c485d6ab1a1984d5b0dc83cb4c0bc38167936a8fcbd7b5de3bf5b07ea556cd0d32cba9b5f72a8358a0_640.jpg" alt="Plastic Waste">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Composting &amp; Recycling Tips</h3>
+                        <p>Discover simple ways to compost organic waste at home and best practices for recycling materials. Reduce landfill waste and contribute to a healthier environment.</p>
+                        <ul>
+                            <li>Start a compost pit/bin for fruit/vegetable peelings.</li>
+                            <li>Clean recyclables before disposal.</li>
+                            <li>Know what your local MRF (Materials Recovery Facility) accepts.</li>
+                        </ul>
+                    </div>
+                    <div class="card education-item">
+                        <img src="https://public.youware.com/users-website-assets/prod/d4af51b8-e292-4567-b329-40a1c600becf/ga197f6b9e3f5c7e15c3f8830459e5e57b5274141e771eed4560f6a46039ec7f1e8e8eccdd69d470eb2e1cb69166300741e96fd18e6649054c30d0ba49b71efa2_640.png" alt="Garbage Collection Truck">
+                        <i class="fas fa-globe-asia"></i>
+                        <h3>Environmental Impact</h3>
+                        <p>Understand the impact of improper waste disposal on our community and the environment. Learn why responsible waste management is crucial for Lucban's future.</p>
+                        <ul>
+                            <li>Reduces pollution of soil and water.</li>
+                            <li>Conserves natural resources.</li>
+                            <li>Mitigates climate change.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="qr-code">
+            <div class="container">
+                <h2>QR Code Logging System</h2>
+                <div class="qr-content">
+                    <img src="https://public.youware.com/users-website-assets/prod/d4af51b8-e292-4567-b329-40a1c600becf/gb4bc5d66a2f8751d65260d23de95d31db1f91437e4b904c7a31cbcf0bfa3ef8258c564501a949038086da9e542e096bac47de517cc189ab03a914566f40feaf4_640.png" alt="QR Code Example">
+                    <div class="qr-text">
+                        <p>The iBasura system incorporates a QR-code based logging mechanism to enhance waste pickup accountability and provide real-time data. This innovative approach aims to streamline the collection process and ensure transparency.</p>
+                        <h3>How it Works:</h3>
+                        <ul>
+                            <li><strong>For Residents:</strong> Households may be provided with unique QR codes. When waste is ready for collection, this QR code can be presented or scanned. (Specific implementation details will be provided by the Barangay).</li>
+                            <li><strong>For Collectors:</strong> Waste collection teams will be equipped with scanners. Scanning the QR code at the time of pickup logs the collection event, timestamp, and location.</li>
+                            <li><strong>Real-time Data:</strong> This data is transmitted in real-time (or near real-time) to the barangay's central system, allowing for efficient monitoring and management of waste collection routes and schedules.</li>
+                        </ul>
+                        <h3>Benefits:</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> <strong>Accountability:</strong> Ensures that collections are made as scheduled and recorded accurately.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Efficiency:</strong> Helps optimize collection routes and identify areas with missed pickups quickly.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Transparency:</strong> Provides both residents and barangay officials with clear data on waste collection activities.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Improved Service:</strong> Facilitates quicker response to missed collections and helps in planning better waste management strategies.</li>
+                        </ul>
+                        <p><em>Instructions for residents on how to obtain and use their QR codes will be disseminated by the Barangay officials once the system is fully implemented.</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 iBasura: Barangay Solid Waste Management and Reporting System. All Rights Reserved.</p>
+            <p>Lucban, Quezon, Philippines</p>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <h2>Yasin Arafat</h2>
-        <img src="img/rev1.jpg" />
-      </div>
-      <div class="box">
-        <div class="stars">
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star-half"></i>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <h2>Yasin Arafat</h2>
-        <img src="img/rev2.jpg" />
-      </div>
-      <div class="box">
-        <div class="stars">
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star"></i>
-          <i class="bx bx-star-half"></i>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <h2>Yasin Arafat</h2>
-        <img src="img/rev3.jpg" />
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <section class="footer">
-    <div class="footer-box">
-      <h2>Coffee Shop</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      <div class="social">
-        <a href="#"><i class="bx bxl-facebook"></i></a>
-        <a href="#"><i class="bx bxl-twitter"></i></a>
-        <a href="#"><i class="bx bxl-instagram"></i></a>
-        <a href="#"><i class="bx bxl-tiktok"></i></a>
-      </div>
-    </div>
-    <div class="footer-box">
-      <h3>Support</h3>
-      <li><a href="#">Products</a></li>
-      <li><a href="#">Help & Support</a></li>
-      <li><a href="#">Return Policy</a></li>
-      <li><a href="#">Terms of Use</a></li>
-    </div>
-    <div class="footer-box">
-      <h3>View Guides</h3>
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Careers</a></li>
-      <li><a href="#">Blog Posts</a></li>
-      <li><a href="#">Our Branches</a></li>
-    </div>
-    <div class="footer-box">
-      <h3>Contact</h3>
-      <span><li><i class="bx bxs-map"></i> 250 New York City, USA 1001</li></span>
-      <span><li><i class="bx bxs-phone"></i> +1 444 744 8444</li></span>
-      <span><li><i class="bx bxs-envelope"></i> coffee@shop.com</li></span>
-    </div>
-  </section>
+    <script src="jind.js"></script>
 
-  <div class="copyright">
-    <p>© 2023 Coffee Shop. All rights reserved.</p>
-  </div>
-
- 
-  <!-- Cart Modal (update styles for animation and look) -->
-<div id="cart-modal" class="cart-modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(0.9); background:#fff; padding:24px 20px 16px 20px; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.2); z-index:1000; min-width:320px; transition:all 0.2s;">
-  <h3 style="margin-top:0;">Your Cart</h3>
-  <ul id="cart-items-modal" style="padding:0; list-style:none; margin-bottom:12px;"></ul>
-  <p style="font-weight:bold;">Total: $<span id="cart-total-modal">0.00</span></p>
-  <button onclick="closeCart()" style="background:#e67e22; color:#fff; border:none; padding:8px 18px; border-radius:6px; cursor:pointer;">Close</button>
-</div>
-
-<script src="main.js"></script>
-</body>
-</html>
+</body></html>
